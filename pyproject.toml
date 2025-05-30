@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "da2od"
+version = "0.1.0"
+description = "Differential Alignment for Domain Adaptive Object Detection"
+readme = "README.md"
+authors = [
+  { name="Xinyu He", email="xy_he68@tju.edu.cn" },
+  { name="Xinhui Li", email="lixinhui@tju.edu.cn" },
+  { name="Xiaojie Guo", email="xj.max.guo@gmail.com" }
+]
+dependencies = [
+    "pillow==9.5.0", # see: https://github.com/facebookresearch/detectron2/issues/5010
+    "scipy",
+    "opencv-python",
+    "detectron2 @ git+https://github.com/facebookresearch/detectron2.git",
+    "timm", 
+]
+
+[project.urls]
+Homepage = "https://github.com/EstrellaXyu/DifferentialAlignment-for-DAOD"
+Issues = "https://github.com/EstrellaXyu/DifferentialAlignment-for-DAOD/issues"
+
+[tool.setuptools.packages.find]
+include = ["da2od", "da2od.*"]

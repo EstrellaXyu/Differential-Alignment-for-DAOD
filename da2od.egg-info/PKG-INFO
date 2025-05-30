@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: da2od
+Version: 0.1.0
+Summary: Differential Alignment for Domain Adaptive Object Detection
+Author-email: Xinyu He <xy_he68@tju.edu.cn>, Xinhui Li <lixinhui@tju.edu.cn>, Xiaojie Guo <xj.max.guo@gmail.com>
+Project-URL: Homepage, https://github.com/EstrellaXyu/DifferentialAlignment-for-DAOD
+Project-URL: Issues, https://github.com/EstrellaXyu/DifferentialAlignment-for-DAOD/issues
+Description-Content-Type: text/markdown
+Requires-Dist: pillow==9.5.0
+Requires-Dist: scipy
+Requires-Dist: opencv-python
+Requires-Dist: detectron2@ git+https://github.com/facebookresearch/detectron2.git
+Requires-Dist: timm
