@@ -5,7 +5,6 @@ from torch import nn
 
 import detectron2.utils.comm as comm
 
-
 from fvcore.common.checkpoint import _IncompatibleKeys
 from detectron2.checkpoint.detection_checkpoint import DetectionCheckpointer
 from detectron2.checkpoint.c2_model_loading import align_and_update_state_dicts

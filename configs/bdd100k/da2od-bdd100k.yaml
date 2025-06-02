@@ -1,11 +1,11 @@
-_BASE_: "./base-rcnn-bdd100k.yaml"
+_BASE_: "./Base-RCNN-FPN-Bdd100k_strongaug_ema.yaml"
 MODEL:
-  WEIGHTS: "output/bdd100k/bdd100k_baseline_strongaug/bdd100k_val_model_best.pth"
+  WEIGHTS: "/PATH/TO/bdd100k_val_model_best.pth"
 EMA:
   ENABLED: True
 DATASETS:
   UNLABELED: ("bdd100k_val",)
-  BATCH_COMPONENTS: ("labeled_strong", "unlabeled_strong")
+  BATCH_CONTENTS: ("labeled_strong", "unlabeled_strong")
   BATCH_RATIOS: (1,1)
 DA:
   TEACHER:
@@ -30,5 +30,5 @@ AUG:
 SOLVER:
   STEPS: (14999,)
   MAX_ITER: 15000
-  BACKWARD_EVERY_PHASE: False
-OUTPUT_DIR: "output/bdd100k/bdd100k_aldi_best_pred_ins_img_run2/"
+  BACKWARD_AT_END: False
+OUTPUT_DIR: "output/bdd100k/bdd100k_da2od/"

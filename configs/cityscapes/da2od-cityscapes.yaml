@@ -1,6 +1,6 @@
-_BASE_: "./base-rcnn-cityscapes.yaml"
+_BASE_: "./Base-RCNN-FPN-Cityscapes_strongaug.yaml"
 MODEL:
-  WEIGHTS: "output/cityscapes/cityscapes_da2od_strongaug_imagenet//cityscapes_foggy_val_model_best.pth"
+  WEIGHTS: "/PATH/TO/cityscapes_foggy_val_model_best.pth"
 EMA:
   ENABLED: True
 DA:
@@ -11,13 +11,13 @@ DA:
     HARD_ROIH_REG_ENABLED: False
     HARD_OBJ_ENABLED: False
     HARD_RPN_REG_ENABLED: False
-    SOFT_ROIH_CLS_ENABLED: True
-    SOFT_OBJ_ENABLED: True
-    SOFT_ROIH_REG_ENABLED: True
-    SOFT_RPN_REG_ENABLED: True
+    ROIH_CLS_ENABLED: True
+    OBJ_ENABLED: True
+    ROIH_REG_ENABLED: True
+    RPN_REG_ENABLED: True
   ALIGN:
-    IMG_ALIGN_ENABLED: True
-    INS_ALIGN_ENABLED: True
+    IMG_DA_ENABLED: True
+    INS_DA_ENABLED: True
 AUG:
   LABELED_INCLUDE_RANDOM_ERASING: True
   UNLABELED_INCLUDE_RANDOM_ERASING: False
@@ -25,10 +25,10 @@ AUG:
   UNLABELED_MIC_AUG: True
 DATASETS:
   UNLABELED: ("cityscapes_foggy_train",)
-  BATCH_COMPONENTS: ("labeled_strong", "unlabeled_strong")
+  BATCH_CONTENTS: ("labeled_strong", "unlabeled_strong")
   BATCH_RATIOS: (1,1)
 SOLVER:
   STEPS: (14999,)
   MAX_ITER: 15000
-  BACKWARD_EVERY_PHASE: True
-OUTPUT_DIR: "output/cityscapes/cityscapes_da2od_best/"
+  BACKWARD_AT_END: False
+OUTPUT_DIR: "output/cityscapes/cityscapes_da2od/"

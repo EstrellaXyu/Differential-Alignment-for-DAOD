@@ -1,10 +1,7 @@
-_BASE_: "detectron2/base-rcnn-fpn.yaml"
+_BASE_: "detectron2/Base-RCNN-FPN.yaml"
 MODEL:
   WEIGHTS: "models/R-50.pkl"
   MASK_ON: False
-  ROI_HEADS:
-    NMS_THRESH_TEST: 0.05
-    SCORE_THRESH_TEST: 0.9
 INPUT:
   MIN_SIZE_TRAIN: (800, 832, 864, 896, 928, 960, 992, 1024)
   MIN_SIZE_TRAIN_SAMPLING: "choice"
@@ -16,8 +13,8 @@ SOLVER:
   STEPS: (1600,)
   MAX_ITER: 2000
   IMS_PER_BATCH: 32
-  IMS_PER_GPU: 4  
-  BACKWARD_EVERY_PHASE: False
+  IMS_PER_GPU: 4
+  BACKWARD_AT_END: False
   AMP:
     ENABLED: True
   WARMUP_ITERS: 100

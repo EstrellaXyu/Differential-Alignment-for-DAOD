@@ -109,7 +109,7 @@ Benchmark | AP<sub>50</sub><sup>val</sup> | config| checkpoint
 
 <!-- ## Acknowledgement
 
-The bounding boxes annotation of cityscapes in our work follows [aldi](https://arxiv.org/pdf/2403.12029), and we also use the same code framework. Thanks for their work. -->
+The bounding boxes annotation of cityscapes in our work follows [DA2OD](https://arxiv.org/pdf/2403.12029), and we also use the same code framework. Thanks for their work. -->
 
 ## Reference
 If you find our work useful in your research, please consider citing our paper:

@@ -1,11 +1,11 @@
-_BASE_: "./base-rcnn-sim10k.yaml"
+_BASE_: "./Base-RCNN-FPN-Sim10k_strongaug.yaml"
 MODEL:
-  WEIGHTS: "output/sim10k/sim10k_baseline_strongaug/cityscapes_cars_val_model_best.pth"
+  WEIGHTS: //PATH/TO?cityscapes_cars_val_model_best.pth"
 EMA:
   ENABLED: True
 DATASETS:
   UNLABELED: ("cityscapes_cars_train",)
-  BATCH_COMPONENTS: ("labeled_strong", "unlabeled_strong")
+  BATCH_CONTENTS: ("labeled_strong", "unlabeled_strong")
   BATCH_RATIOS: (1,1)
 DA:
   TEACHER:
@@ -30,5 +30,5 @@ AUG:
 SOLVER:
   STEPS: (14999,)
   MAX_ITER: 15000
-  BACKWARD_EVERY_PHASE: False
-OUTPUT_DIR: "output/sim10k/sim10k_baseline_strongaug/"
+  BACKWARD_AT_END: False
+OUTPUT_DIR: "output/sim10k/sim10k_da2od/"
