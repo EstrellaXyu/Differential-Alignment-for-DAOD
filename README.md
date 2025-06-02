@@ -106,10 +106,6 @@ Benchmark | AP<sub>50</sub><sup>val</sup> | config| checkpoint
 **cityscapes &rarr; bdd100k** | 45.8 | [config](configs/bdd100k/da2od-bdd100k.yaml) | [url](https://github.com/EstrellaXyu/Differential-Alignment-for-DAOD/releases/download/initial/bdd100k_val_model_best.pth)
 **sim10k &rarr; cityscapes** | 69.7 | [config](configs/sim10k/da2od-sim10k.yaml) | [url](https://github.com/EstrellaXyu/Differential-Alignment-for-DAOD/releases/download/initial/cityscapes_cars_val_model_best.pth)
 
-
-<!-- ## Acknowledgement
-
-
 ## Reference
 If you find our work useful in your research, please consider citing our paper:
 
