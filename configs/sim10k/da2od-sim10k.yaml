@@ -1,0 +1,34 @@
+_BASE_: "./base-rcnn-sim10k.yaml"
+MODEL:
+  WEIGHTS: "output/sim10k/sim10k_baseline_strongaug/cityscapes_cars_val_model_best.pth"
+EMA:
+  ENABLED: True
+DATASETS:
+  UNLABELED: ("cityscapes_cars_train",)
+  BATCH_COMPONENTS: ("labeled_strong", "unlabeled_strong")
+  BATCH_RATIOS: (1,1)
+DA:
+  TEACHER:
+    ENABLED: True
+  DISTILL:
+    HARD_ROIH_CLS_ENABLED: False
+    HARD_ROIH_REG_ENABLED: False
+    HARD_OBJ_ENABLED: False
+    HARD_RPN_REG_ENABLED: False
+    ROIH_CLS_ENABLED: True
+    OBJ_ENABLED: True
+    ROIH_REG_ENABLED: True
+    RPN_REG_ENABLED: True
+  ALIGN:
+    IMG_DA_ENABLED: True
+    INS_DA_ENABLED: True
+AUG:
+  LABELED_INCLUDE_RANDOM_ERASING: True
+  UNLABELED_INCLUDE_RANDOM_ERASING: False
+  LABELED_MIC_AUG: False
+  UNLABELED_MIC_AUG: True
+SOLVER:
+  STEPS: (14999,)
+  MAX_ITER: 15000
+  BACKWARD_AT_END: False
+OUTPUT_DIR: "output/sim10k/sim10k_baseline_strongaug/"

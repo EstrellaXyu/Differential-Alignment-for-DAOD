@@ -1,0 +1,34 @@
+_BASE_: "./base-rcnn-bdd100k.yaml"
+MODEL:
+  WEIGHTS: "output/bdd100k/bdd100k_baseline_strongaug/bdd100k_val_model_best.pth"
+EMA:
+  ENABLED: True
+DATASETS:
+  UNLABELED: ("bdd100k_val",)
+  BATCH_COMPONENTS: ("labeled_strong", "unlabeled_strong")
+  BATCH_RATIOS: (1,1)
+DA:
+  TEACHER:
+    ENABLED: True
+  DISTILL:
+    HARD_ROIH_CLS_ENABLED: False
+    HARD_ROIH_REG_ENABLED: False
+    HARD_OBJ_ENABLED: False
+    HARD_RPN_REG_ENABLED: False
+    ROIH_CLS_ENABLED: True
+    OBJ_ENABLED: True
+    ROIH_REG_ENABLED: True
+    RPN_REG_ENABLED: True
+  ALIGN:
+    IMG_DA_ENABLED: True
+    INS_DA_ENABLED: True
+AUG:
+  LABELED_INCLUDE_RANDOM_ERASING: True
+  UNLABELED_INCLUDE_RANDOM_ERASING: False
+  LABELED_MIC_AUG: False
+  UNLABELED_MIC_AUG: True
+SOLVER:
+  STEPS: (14999,)
+  MAX_ITER: 15000
+  BACKWARD_AT_END: False
+OUTPUT_DIR: "output/bdd100k/bdd100k_best_pred_ins_img_run2/"
